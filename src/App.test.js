@@ -9,6 +9,7 @@ it('renders without crashing', () => {
     <BrowserRouter>
       <App />
     </BrowserRouter>,
-    div);
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
