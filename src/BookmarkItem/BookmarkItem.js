@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Rating from '../Rating/Rating';
+import PropTypes from 'prop-types'
 import './BookmarkItem.css';
 import config from '../config';
 import BookmarksContext from '../BookmarksContext'
@@ -8,7 +10,7 @@ function deleteBookmarkRequest(bookmarkId, callback) {
   fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
-      'authorization': `bearer ${config.API_KEY}`
+      'Authorization': `Bearer ${config.API_KEY}`
     }
   })
     .then(response => {
@@ -49,7 +51,6 @@ export default function BookmarkItem(props) {
           <div className='BookmarkItem__buttons'>
             <button
               className='BookmarkItem__description'
-              // onClick={() => props.onClickDelete(props.id)}
               onClick={() => {
                 deleteBookmarkRequest(
                   props.id,
@@ -58,6 +59,11 @@ export default function BookmarkItem(props) {
               }}
             >
               Delete
+            </button>
+            <button>
+              <Link to={`/edit/${props.id}`}>
+                Edit Article
+              </Link>
             </button>
           </div>
         </li>
@@ -68,4 +74,16 @@ export default function BookmarkItem(props) {
 
 BookmarkItem.defaultProps = {
   onClickDelete: () => {},
+}
+
+BookmarkItem.propTypes = {
+  id: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  desciption: PropTypes.string,
+  rating: PropTypes.number.isRequired,
+  onClickDelete: PropTypes.func,
 }
