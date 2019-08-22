@@ -10,14 +10,13 @@ function deleteBookmarkRequest(bookmarkId, callback) {
   fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
+      'content-type': 'application/json',
       'Authorization': `Bearer ${config.API_KEY}`
     }
   })
     .then(response => {
       if (!response.ok) {
-        return response.json().then(error => {
-          throw error
-        })
+        return response.json().then(error => Promise.reject(error))
       }
       return response.json()
     })
