@@ -7,7 +7,7 @@ import config from '../config';
 import BookmarksContext from '../BookmarksContext'
 
 function deleteBookmarkRequest(bookmarkId, callback) {
-  fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
+  fetch(config.API_ENDPOINT + `/api/bookmarks/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json',

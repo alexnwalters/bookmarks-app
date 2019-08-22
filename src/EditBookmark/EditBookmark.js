@@ -67,7 +67,7 @@ class EditBookmark extends Component {
     //   description: description.value,
     //   rating: rating.value,
     }
-    fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
+    fetch(config.API_ENDPOINT + `/api/bookmarks/${bookmarkId}`, {
       method: 'PATCH',
       body: JSON.stringify(newBookmark),
       headers: {
@@ -100,7 +100,7 @@ class EditBookmark extends Component {
 
   componentDidMount() {
       const bookmarkId = this.props.match.params.bookmark
-      fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
+      fetch(config.API_ENDPOINT + `/api/bookmarks/${bookmarkId}`, {
           method: 'GET',
           headers: {
             'content-type': 'application/json',
