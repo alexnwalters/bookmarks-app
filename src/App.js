@@ -41,7 +41,7 @@ class App extends Component {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_KEY}`
+        'Authorization': `${config.API_KEY}`
       }
     })
       .then(res => {
@@ -77,7 +77,7 @@ class App extends Component {
           <Nav />
           <div className='content' aria-live='polite'>
             <Route
-              path='/add-bookmark'
+              path='/addBookmark'
               component={AddBookmark}
             />
             <Route

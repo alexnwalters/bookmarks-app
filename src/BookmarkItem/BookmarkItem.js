@@ -11,15 +11,15 @@ function deleteBookmarkRequest(bookmarkId, callback) {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json',
-      'Authorization': `Bearer ${config.API_KEY}`
+      'Authorization': `${config.API_KEY}`
     }
   })
-    .then(response => {
-      if (!response.ok) {
-        return response.json().then(error => Promise.reject(error))
-      }
-      return response.json()
-    })
+    // .then(response => {
+    //   if (!response.ok) {
+    //     return response.json().then(error => Promise.reject(error))
+    //   }
+    //   return response.json()
+    // })
     .then(data => {
       callback(bookmarkId)
     })

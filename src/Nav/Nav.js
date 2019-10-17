@@ -8,7 +8,7 @@ export default function Nav(props) {
         Bookmark List
       </Link>
       {' '}
-      <Link to={'/add-bookmark'}>
+      <Link to={'/addBookmark'}>
         Add Bookmark
       </Link>
     </nav>

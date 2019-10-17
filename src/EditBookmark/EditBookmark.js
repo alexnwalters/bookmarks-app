@@ -72,7 +72,7 @@ class EditBookmark extends Component {
       body: JSON.stringify(newBookmark),
       headers: {
         'content-type': 'application/json',
-        'authorization': `Bearer ${config.API_KEY}`
+        'authorization': `${config.API_KEY}`
       }
     })
       .then(res => {
@@ -104,7 +104,7 @@ class EditBookmark extends Component {
           method: 'GET',
           headers: {
             'content-type': 'application/json',
-            'authorization': `bearer ${config.API_KEY}`
+            'authorization': `${config.API_KEY}`
             }
       })
       .then(res => {
